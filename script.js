@@ -9,6 +9,3 @@ if (toggle && menu) {
     link.addEventListener("click", () => menu.classList.remove("open"));
   });
 }
-
-// 여기에 다른 동작을 추가할 수 있습니다.
-// 예: Codex에게 "스크롤하면 메뉴 배경을 진하게 해줘" 처럼 말하면 코드가 채워집니다.
