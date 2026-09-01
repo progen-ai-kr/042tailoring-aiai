@@ -24,7 +24,9 @@
   <!-- ===== 상단 메뉴 (5페이지 공통 — 수정하면 모든 페이지에 똑같이 반영하세요) ===== -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="logo">BRAND</a>
+      <a href="index.html" class="logo" aria-label="042 TAILORING 홈으로 이동">
+        <img src="images/042-tailoring-logo.png" alt="042 TAILORING" />
+      </a>
       <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
       <nav class="nav-menu">
         <a href="index.html" class="active">홈</a>
@@ -37,11 +39,20 @@
   </header>
 
   <!-- ===== 히어로 [작성서 04 홈: 메인 카피·서브 카피] ===== -->
-  <section class="hero">
-    <p class="eyebrow">BRAND KEYWORD · KEYWORD</p>
-    <h1>메인 카피 (20자 내)</h1>
-    <p>서브 카피 (40자 내) — 브랜드를 소개하는 짧은 문장을 적으세요.</p>
-    <a href="products.html" class="btn">컬렉션 보기</a>
+  <section class="hero hero-type-stage">
+    <!-- 첫 화면을 가득 채우며 계속 위아래로 움직이는 브랜드 타이포그래피 -->
+    <h1 class="reel-title" aria-label="TAILORING">
+      <!-- 같은 글자를 세로로 반복해 슬롯머신처럼 끊김 없이 회전시킵니다. -->
+      <span class="letter-reel"><span class="letter-reel-track" aria-hidden="true"><span>T</span><span>T</span><span>T</span><span>T</span><span>T</span><span>T</span></span></span>
+      <span class="letter-reel"><span class="letter-reel-track" aria-hidden="true"><span>A</span><span>A</span><span>A</span><span>A</span><span>A</span><span>A</span></span></span>
+      <span class="letter-reel narrow"><span class="letter-reel-track" aria-hidden="true"><span>I</span><span>I</span><span>I</span><span>I</span><span>I</span><span>I</span></span></span>
+      <span class="letter-reel"><span class="letter-reel-track" aria-hidden="true"><span>L</span><span>L</span><span>L</span><span>L</span><span>L</span><span>L</span></span></span>
+      <span class="letter-reel wide"><span class="letter-reel-track" aria-hidden="true"><span>O</span><span>O</span><span>O</span><span>O</span><span>O</span><span>O</span></span></span>
+      <span class="letter-reel"><span class="letter-reel-track" aria-hidden="true"><span>R</span><span>R</span><span>R</span><span>R</span><span>R</span><span>R</span></span></span>
+      <span class="letter-reel narrow"><span class="letter-reel-track" aria-hidden="true"><span>I</span><span>I</span><span>I</span><span>I</span><span>I</span><span>I</span></span></span>
+      <span class="letter-reel"><span class="letter-reel-track" aria-hidden="true"><span>N</span><span>N</span><span>N</span><span>N</span><span>N</span><span>N</span></span></span>
+      <span class="letter-reel wide"><span class="letter-reel-track" aria-hidden="true"><span>G</span><span>G</span><span>G</span><span>G</span><span>G</span><span>G</span></span></span>
+    </h1>
   </section>
 
   <!-- ===== 강점 3가지 [작성서 04 홈: 강점3가지] ===== -->
@@ -76,12 +87,9 @@
 
   <!-- ===== 푸터 (5페이지 공통) [작성서 01: 푸터 표기 정보] ===== -->
   <footer class="footer">
-    <p class="logo">BRAND</p>
-    <p class="biz">
-      상호: ○○○ · 대표자: ○○○<br />
-      사업자등록번호: 000-00-00000 · 주소: ○○○
-    </p>
-    <p>© 브랜드 이름. All rights reserved.</p>
+    <p class="logo"><img src="images/042-tailoring-logo.png" alt="042 TAILORING" /></p>
+    <p class="biz">상호명: 042 Tailoring · 대표자: 정주원</p>
+    <p>© 042 Tailoring. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
