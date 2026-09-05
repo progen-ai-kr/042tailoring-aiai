@@ -3,18 +3,27 @@
    (예: RE:STITCH → --bg:#F7F4EE; --ink:#111; --accent:#0E5A5A;)
    ========================================================== */
 :root {
-  --bg: #faf9f6;        /* 페이지 배경 */
-  --surface: #f1efe9;   /* 카드·옅은 배경 */
-  --ink: #1a1a1a;       /* 기본 글자색 */
-  --ink-soft: #5c5c56;  /* 보조 글자색 */
-  --accent: #1a1a1a;    /* 강조색 (버튼·포인트) */
-  --line: #e4e1d8;      /* 테두리 선 */
-  --hero-bg: #ffffff;   /* 홈 움직이는 타이포그래피 배경 */
+  /* 042 TAILORING 컬러 팔레트 가이드 (브랜드 소개 자료 02. Brand Identity) */
+  --raw: #050505;       /* RAW BLACK — 정통 테일러링의 베이스 */
+  --charcoal: #2B2B2E;  /* TAILOR CHARCOAL — 울 트윌 텍스처 */
+  --chalk: #F5F5F7;     /* CHALK WHITE — 패브릭 라벨 & 백그라운드 */
+  --orange: #FF5500;    /* SAFETY ORANGE — 시침실 스티치 포인트 */
+  --cream: #E9DFCB;     /* LABEL CREAM — 초크 베이지 룩 */
+
+  --bg: var(--chalk);   /* 페이지 배경 */
+  --surface: #EAEAEE;   /* 카드·옅은 배경 */
+  --ink: var(--raw);    /* 기본 글자색 */
+  --ink-soft: #5B5B60;  /* 보조 글자색 */
+  --accent: var(--raw); /* 강조색 (버튼·포인트) — 주황은 선(스티치)에만 씁니다 */
+  --line: #D8D8DE;      /* 테두리 선 */
+  --hero-bg: var(--chalk);   /* 홈 움직이는 타이포그래피 배경 */
 
   --font-main: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  --font-display: var(--font-main);  /* 제목용 폰트 (다르게 쓰고 싶으면 변경) */
+  --font-display: var(--font-main);  /* 제목용 폰트 (홈 타이포그래피 애니메이션이 이 폰트 폭에 맞춰져 있음) */
+  --font-brand: "Antonio", "Arial Narrow", "Roboto Condensed", sans-serif;   /* 브랜드 페이지 제목 — 로고의 컨덴스드 서체 */
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;        /* 작업지시서(Tech-Pack) 느낌의 라벨 서체 */
 
-  --radius: 12px;
+  --radius: 3px;        /* 라벨처럼 각진 모서리 */
   --maxw: 1080px;
 }
 
@@ -298,4 +307,180 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .product-carousel-track { transition: none; }
+}
+
+/* ==========================================================
+   ★ 042 TAILORING 브랜드 페이지 (about.html · products.html · product.html)
+   - 접두어 b- 클래스는 브랜드 소개·제품 페이지 전용입니다.
+   - 주황 점선(dashed)은 브랜드 시그니처인 '시침실(Basting Thread)'을 뜻합니다.
+   - 흰 바탕의 작은 라벨(.b-tag)은 옷에 달린 케어라벨을 본뜬 장치입니다.
+   ========================================================== */
+.b-wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+.b-section { padding: 56px 0; }
+.b-section-last { padding-bottom: 72px; }
+.b-display { font-family: var(--font-brand); font-weight: 700; line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+.b-mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.b-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+.b-lead { font-size: clamp(15px, 4vw, 17px); line-height: 1.85; color: var(--ink-soft); max-width: 34em; }
+.b-sub { font-size: 13.5px; color: var(--ink-soft); }
+.b-note { font-size: 12.5px; color: var(--ink-soft); margin-top: 10px; }
+.b-x { color: var(--orange); font-family: var(--font-mono); font-weight: 500; }
+
+/* 섹션 머리: 왼쪽 제목, 오른쪽 작은 모노 라벨 */
+.b-sec-head { display: grid; gap: 10px; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.b-sec-head h2 { font-size: clamp(30px, 8vw, 56px); text-wrap: balance; }
+
+/* 케어라벨 태그 (사진 위에 얹는 흰 라벨) */
+.b-tag {
+  position: absolute; left: 12px; bottom: 12px;
+  display: inline-grid; gap: 2px; padding: 9px 12px;
+  background: var(--chalk); color: var(--raw);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; line-height: 1.4;
+  outline: 2px dashed var(--orange); outline-offset: -5px;
+}
+.b-tag b { font-family: var(--font-brand); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+
+/* 사진 공통 */
+.b-photo { position: relative; margin: 0; background: var(--surface); }
+.b-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+
+/* ---- 히어로 ---- */
+.b-hero { padding: 44px 0 0; border-bottom: 1px solid var(--line); }
+.b-hero-grid { display: grid; gap: 28px; }
+.b-hero-title { font-size: clamp(58px, 17vw, 168px); margin: 10px 0 0; text-wrap: balance; }
+.b-hero-title em { font-style: normal; color: var(--orange); }
+.b-hero-copy .b-lead { margin-top: 22px; }
+
+/* 작업지시서 머리말 정보 띠 (Style No / Location / Lat·Lng / Version) */
+.b-meta { display: grid; grid-template-columns: 1fr 1fr; margin-top: 36px; border-top: 2px dashed var(--orange); }
+.b-meta > div { padding: 14px 14px 14px 0; border-bottom: 1px solid var(--line); }
+.b-meta > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.b-meta > div:nth-child(even) { padding-left: 14px; }
+.b-meta dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.b-meta dd { font-family: var(--font-mono); font-size: 13px; margin-top: 4px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---- 브랜드 키워드 3개 ---- */
+.b-pillars { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.b-pillar { background: var(--bg); padding: 26px 22px 30px; display: grid; gap: 12px; align-content: start; }
+.b-pillar h2 { font-size: 28px; }
+.b-pillar p { color: var(--ink-soft); }
+
+/* ---- 스토리 (042 큰 숫자) ---- */
+.b-story { display: grid; gap: 28px; align-items: center; }
+.b-story > img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: var(--surface); }
+.b-num { font-family: var(--font-brand); font-weight: 700; font-size: clamp(110px, 30vw, 240px); line-height: .8; letter-spacing: .06em; color: var(--orange); }
+.b-story-copy h2 { font-size: clamp(34px, 9vw, 76px); margin: 8px 0 18px; text-wrap: balance; }
+.b-story-copy p { color: var(--ink-soft); margin-bottom: 14px; max-width: 36em; }
+
+/* ---- 시그니처 스티치 + 라벨 카드 ---- */
+.b-sig { display: grid; gap: 36px; align-items: start; }
+.b-points { list-style: none; margin-top: 16px; border-top: 1px solid var(--line); }
+.b-points li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.b-points strong { display: block; font-weight: 600; }
+.b-points span { color: var(--ink-soft); font-size: 14.5px; }
+.b-label-card {
+  background: var(--chalk); color: var(--raw);
+  padding: 24px 22px 20px; border: 1px solid #A9A9B0;
+  outline: 2px dashed var(--orange); outline-offset: -11px;
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.6;
+  display: grid; gap: 10px; max-width: 460px;
+}
+.b-label-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--raw); padding-bottom: 8px; }
+.b-label-head .b-display { font-size: 24px; }
+.b-serial { font-family: var(--font-brand); font-weight: 700; font-size: clamp(40px, 12vw, 56px); letter-spacing: .04em; line-height: 1; color: var(--orange); }
+.b-label-card dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; }
+.b-label-card dt { color: #6E6A62; }
+.b-label-for { border-top: 1px dashed var(--raw); padding-top: 10px; display: flex; gap: 12px; align-items: baseline; }
+.b-label-for span { flex: 1; border-bottom: 1px solid var(--raw); min-height: 18px; color: var(--orange); font-style: italic; text-transform: none; letter-spacing: .02em; }
+
+/* ---- 컬러 팔레트 ---- */
+.b-palette { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.b-swatch { display: grid; gap: 6px; }
+.b-chip { aspect-ratio: 4/3; border: 1px solid var(--line); }
+.b-swatch-name { font-family: var(--font-brand); font-weight: 600; font-size: 20px; letter-spacing: .03em; text-transform: uppercase; margin-top: 4px; }
+
+/* ---- 젠더리스 사진 한 쌍 ---- */
+.b-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.b-pair-copy { display: grid; gap: 16px; margin-top: 24px; }
+.b-pair-copy h2 { font-size: clamp(32px, 8vw, 60px); text-wrap: balance; }
+.b-pair-copy p { color: var(--ink-soft); max-width: 34em; }
+
+/* ---- 대표 4착장 룩북 ---- */
+.b-lookbook { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+.b-look { text-decoration: none; display: grid; gap: 6px; align-content: start; }
+.b-look h3 { font-size: 15px; margin-top: 6px; line-height: 1.4; }
+.b-look p { font-size: 13px; color: var(--ink-soft); }
+.b-look:hover .b-photo img, .b-look:focus-visible .b-photo img { opacity: .92; }
+.b-cta { margin-top: 32px; }
+
+/* ---- 만드는 방식 3칸 ---- */
+.b-process { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.b-process > div { background: var(--bg); padding: 22px 20px; display: grid; gap: 8px; align-content: start; }
+.b-process h3 { font-size: 22px; font-weight: 600; }
+.b-process p { color: var(--ink-soft); font-size: 14px; }
+
+/* ---- 제품 페이지 머리 ---- */
+.b-page-head { padding: 44px 0 0; border-bottom: 1px solid var(--line); }
+.b-page-head h1 { font-size: clamp(56px, 16vw, 120px); }
+.b-page-head .b-lead { margin-top: 14px; }
+.b-page-head .b-meta { margin-top: 28px; }
+.b-list-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.b-list-head .b-eyebrow { margin: 0; }
+.b-empty { color: var(--ink-soft); grid-column: 1 / -1; padding: 40px 0; border-top: 2px dashed var(--orange); }
+
+/* 제품 카드: 각진 사진 + 왼쪽 위 번호 라벨 + 이름 아래 주황 점선(시침실) */
+.b-product-grid .card-img { position: relative; border-radius: 0; }
+.b-product-grid .card-no {
+  position: absolute; z-index: 1; left: 10px; top: 10px;
+  padding: 4px 7px; background: var(--chalk); color: var(--raw);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+  outline: 1.5px dashed var(--orange); outline-offset: -4px;
+}
+.b-product-grid .card .k { font-family: var(--font-mono); letter-spacing: .1em; }
+.b-product-grid .card h3 { font-size: 15.5px; padding-bottom: 6px; border-bottom: 2px dashed transparent; transition: border-color .2s ease; }
+.b-product-grid .card:hover h3, .b-product-grid .card:focus-visible h3 { border-bottom-color: var(--orange); }
+.b-product-grid .card .price { font-family: var(--font-mono); font-weight: 500; }
+
+/* 제품 상세: 브랜드 서체와 라벨 느낌으로 통일 */
+.product-info .k { font-family: var(--font-mono); letter-spacing: .12em; color: var(--orange); }
+.product-info h1 { font-family: var(--font-brand); font-weight: 700; text-transform: uppercase; line-height: 1; font-size: clamp(38px, 10vw, 64px); }
+.product-info .tags span { border-radius: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.product-price { font-family: var(--font-mono); font-weight: 500; }
+.product-buy { border-radius: var(--radius); }
+.product-carousel-viewport { border-radius: 0; }
+.product-block-image, .product-gallery figure, .product-rich-text img, .product-block-copy img, .product-full-image img { border-radius: 0; }
+.product-rich-text blockquote, .product-block-copy blockquote { border-left: 2px dashed var(--orange); }
+.product-back .btn.ghost { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+
+/* 버튼: 라벨처럼 각지게 (공통 .btn은 pill → 브랜드 페이지에서만 각진 형태) */
+.b-cta .btn, .product-buy, .product-back .btn { border-radius: var(--radius); }
+
+/* ===== 큰 화면(태블릿/PC) — 720px 이상 ===== */
+@media (min-width: 720px) {
+  .b-wrap { padding: 0 24px; }
+  .b-section { padding: 88px 0; }
+  .b-hero { padding-top: 64px; }
+  /* 제목 글자가 사진 열을 밀어내지 않도록: 글 열은 줄어들 수 있게(min-width:0), 제목 크기는 화면 폭에 맞춰 제한 */
+  .b-hero-grid { grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: end; }
+  .b-hero-copy { min-width: 0; }
+  .b-hero-title { font-size: clamp(58px, 9.4vw, 124px); }
+  .b-sec-head { grid-template-columns: 1fr auto; align-items: end; margin-bottom: 40px; }
+  .b-sec-head .b-mono { text-align: right; }
+  .b-meta { grid-template-columns: repeat(4, 1fr); margin-top: 56px; border-bottom: 1px solid var(--line); }
+  .b-meta > div { border-bottom: 0; border-right: 1px solid var(--line); padding: 16px 18px 16px 0; }
+  .b-meta > div:nth-child(even) { padding-left: 18px; }
+  .b-meta > div + div { padding-left: 18px; }
+  .b-meta > div:last-child { border-right: 0; }
+  .b-pillars { grid-template-columns: repeat(3, 1fr); }
+  .b-pillar { padding: 32px 28px 36px; }
+  .b-story { grid-template-columns: .9fr 1.1fr; gap: 64px; }
+  .b-sig { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .b-palette { grid-template-columns: repeat(4, 1fr); }
+  .b-pair { gap: 16px; }
+  .b-pair-copy { grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px; align-items: start; }
+  .b-lookbook { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .b-process { grid-template-columns: repeat(3, 1fr); }
+  .b-process > div { padding: 26px 24px; }
+  .b-page-head { padding-top: 64px; }
+  .b-page-head .b-meta { margin-top: 40px; }
 }

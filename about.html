@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>브랜드 소개 — 브랜드 이름</title>
-  <meta name="description" content="브랜드 스토리와 철학을 소개합니다." />
+  <!-- [작성서 01] 브랜드명 -->
+  <title>브랜드 소개 — 042 TAILORING</title>
+  <!-- [작성서 02] 한 줄 소개 -->
+  <meta name="description" content="대전 중촌동 맞춤양복 장인의 테일러링 위에 시침실 스티치를 노출한 크래프트 해체주의 젠더리스 룩, 042 TAILORING." />
+  <meta property="og:title" content="브랜드 소개 — 042 TAILORING" />
+  <meta property="og:description" content="Unnecessary Perfection. 중촌동의 유산, 크래프트 해체주의, 젠더리스 드레이프 핏." />
+  <meta property="og:image" content="images/brand/look01-black-overfit-jacket-sofa.jpg" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="images/favicon.png" />
+  <!-- 브랜드 전용 서체: 제목용 Antonio(로고의 컨덴스드 서체와 결), 작업지시서 느낌의 IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- ===== 상단 메뉴 (5페이지 공통) ===== -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="logo" aria-label="042 TAILORING 홈으로 이동">
@@ -26,51 +36,202 @@
     </div>
   </header>
 
-  <!-- [작성서 02: 한 줄 소개] -->
-  <section class="page-head">
-    <h1>브랜드 소개</h1>
-    <p>브랜드 한 줄 소개를 여기에 적으세요.</p>
-  </section>
-
-  <!-- [작성서 02: 브랜드 스토리] 문단째 붙여넣으면 됩니다 -->
-  <section class="section">
-    <p class="eyebrow">OUR STORY</p>
-    <h2>브랜드 스토리</h2>
-    <p class="lead">
-      브랜드 스토리를 여기에 붙여넣으세요. 문단이 여러 개면
-      &lt;p&gt; 태그를 복사해서 나눠 넣으면 됩니다.
-    </p>
-    <p class="lead" style="margin-top:14px;">
-      두 번째 문단 예시입니다.
-    </p>
-  </section>
-
-  <!-- [작성서 02: 브랜드 키워드] -->
-  <section class="section">
-    <p class="eyebrow">KEYWORDS</p>
-    <h2>브랜드 키워드</h2>
-    <div class="tags">
-      <span>키워드1</span><span>키워드2</span><span>키워드3</span><span>키워드4</span><span>키워드5</span>
+  <!-- ===== 브랜드 히어로 [작성서 02: 한 줄 소개] =====
+       왼쪽은 슬로건, 오른쪽은 룩북 사진. 사진 위 흰 라벨은 옷에 달린 케어라벨을 본뜬 장치입니다. -->
+  <section class="b-hero">
+    <div class="b-wrap b-hero-grid">
+      <div class="b-hero-copy">
+        <p class="b-eyebrow">Craft Deconstruction · Genderless Tailoring</p>
+        <h1 class="b-display b-hero-title">Unnecessary<br /><em>Perfection</em></h1>
+        <p class="b-lead">
+          대전 지역번호 042, 중촌동 맞춤양복 거리. 수십 년 숙련된 봉제 장인의 테일러링 원형 위에,
+          옷 안쪽에 숨겨지던 시침실과 케어라벨을 겉으로 꺼내 핵심 스티치로 노출합니다.
+          미완성의 공정이 만드는 고결함, 그것이 042 TAILORING의 룩입니다.
+        </p>
+      </div>
+      <figure class="b-photo">
+        <img src="images/brand/look01-black-overfit-jacket-sofa.jpg" alt="블랙 오버핏 데님 재킷과 와이드 슬랙스를 입은 모델이 검은 가죽 소파에 앉아 있다. 왼쪽 소매에 주황색 X 스티치가 보인다." />
+        <figcaption class="b-tag"><b>Look 01</b>042-GNDR-JKT01<br />Black overfit jacket</figcaption>
+      </figure>
+    </div>
+    <!-- 작업지시서(Tech-Pack) 머리말을 그대로 옮긴 정보 띠 -->
+    <div class="b-wrap">
+      <dl class="b-meta">
+        <div><dt>Style No</dt><dd>042-GNDR-01</dd></div>
+        <div><dt>Location</dt><dd>Jungchon-dong · Daejeon</dd></div>
+        <div><dt>Lat / Lng</dt><dd>36.3292 N / 127.4206 E</dd></div>
+        <div><dt>Version</dt><dd>1.0 — 2026</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- [작성서 02: 브랜드 철학] -->
-  <section class="section">
-    <p class="eyebrow">PHILOSOPHY</p>
-    <h2>브랜드 철학</h2>
-    <p class="lead">브랜드 철학 문구를 여기에 적으세요.</p>
-  </section>
-
-  <!-- [작성서 02: 사람·공간 사진] 대표·작업실·작업 과정 컷 -->
-  <section class="section">
-    <p class="eyebrow">PEOPLE & SPACE</p>
-    <h2>만드는 사람들</h2>
-    <div class="grid">
-      <div class="card"><div class="card-img"></div><p>사진 설명</p></div>
-      <div class="card"><div class="card-img"></div><p>사진 설명</p></div>
+  <!-- ===== 브랜드 키워드 3가지 [작성서 02: 브랜드 키워드] ===== -->
+  <section class="b-section">
+    <div class="b-wrap b-pillars">
+      <article class="b-pillar">
+        <p class="b-eyebrow">Heritage</p>
+        <h2 class="b-display">중촌동의 유산</h2>
+        <p>대전 중촌동 봉제 패션 특구, 정통 맞춤양복 장인들의 숨은 기술력을 브랜드의 뼈대로 삼습니다.</p>
+        <p class="b-sub">40년 경력 장인과 협업한 표준 테크팩(도식화 · 봉제사양서)으로 원형을 기록합니다.</p>
+      </article>
+      <article class="b-pillar">
+        <p class="b-eyebrow">Craft Deconstruction</p>
+        <h2 class="b-display">크래프트 해체주의</h2>
+        <p>정교한 테일러링 원형에 시침실 스티치를 결합합니다. 안쪽 공정을 겉면의 아이콘으로 뒤집습니다.</p>
+        <p class="b-sub">Safety Orange 시침실 · 노출 케어라벨 · 042 직조라벨.</p>
+      </article>
+      <article class="b-pillar">
+        <p class="b-eyebrow">Genderless Drape</p>
+        <h2 class="b-display">젠더리스 드레이프 핏</h2>
+        <p>드롭숄더와 유연하게 흐르는 와이드 실루엣. 동일한 패턴 하나로 남녀 모델 모두 완벽하게 소화합니다.</p>
+        <p class="b-sub">2-Size Genderless System.</p>
+      </article>
     </div>
   </section>
 
+  <!-- ===== 브랜드 스토리 [작성서 02: 브랜드 스토리] ===== -->
+  <section class="b-section">
+    <div class="b-wrap b-story">
+      <img src="images/brand/look02-charcoal-setup-side-stitch.jpg" alt="차콜 테일러드 셋업을 입은 모델이 콘크리트 단 위에 앉아 있다. 슬랙스 옆선을 따라 주황색 스티치가 흐른다." />
+      <div class="b-story-copy">
+        <p class="b-num" aria-hidden="true">042</p>
+        <h2 class="b-display">쇠퇴하는 양복거리에<br />새 생명력을</h2>
+        <p>042는 대전의 지역번호이자, 중촌동 봉제 패션 특구의 좌표입니다. 한때 정통 맞춤양복으로 붐볐던 이 거리는 조용히 쇠퇴해 왔습니다. 042 TAILORING은 그 장인들의 헤리티지를 현대 디자이너의 감성으로 승화시켜 거리에 다시 생명력을 주입합니다.</p>
+        <p>메인 봉제는 중촌동 수트 라인에서, 시그니처 십자 스티치는 공방과 연계한 100% 수작업으로. 옷 한 벌이 완성되는 과정 자체가 이 거리의 이야기가 됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 시그니처: Safety Orange 시침실 [작성서 02: 브랜드 철학] ===== -->
+  <section class="b-section">
+    <div class="b-wrap">
+      <div class="b-sec-head">
+        <div>
+          <p class="b-eyebrow">Brand Identity</p>
+          <h2 class="b-display">Safety Orange<br />시침실 시그니처</h2>
+        </div>
+        <p class="b-mono">#FF5500 · Basting thread</p>
+      </div>
+      <div class="b-sig">
+        <div>
+          <p class="b-lead">시침실(Basting Thread)은 본봉제 전에 임시로 옷을 고정하는 실입니다. 완성된 옷에서는 뽑혀 사라지는 이 실을, 042 TAILORING은 주황색으로 바꿔 소매 끝과 라펠, 슬랙스 옆선에 영구히 남깁니다. 브랜드의 모든 의상은 이 포인트 스티치 하나로 정체성을 유지합니다.</p>
+          <ul class="b-points">
+            <li><span class="b-x" aria-hidden="true">✕</span><div><strong>Sold Out, No More · 100벌 한정</strong><span>중촌동 봉제 장인이 한 땀 한 땀 완성하는 주황색 시침실. #001부터 #100까지 고유 넘버링 마스터 시리얼 라벨을 부착합니다.</span></div></li>
+            <li><span class="b-x" aria-hidden="true">✕</span><div><strong>1:1 Personal Care-Labeling</strong><span>방문 고객의 이름이나 메시지를 새긴 케어라벨을 현장에서 즉석 인쇄하고 박음질합니다. 옷을 구매하는 것이 아니라 공정에 참여하는 장면을 각인합니다.</span></div></li>
+            <li><span class="b-x" aria-hidden="true">✕</span><div><strong>Target</strong><span>2030 Gen-Z, 그리고 가치소비를 하는 패션 마니아.</span></div></li>
+          </ul>
+        </div>
+        <div>
+          <!-- 마스터 시리얼 케어라벨을 본뜬 카드 (예시 번호) -->
+          <div class="b-label-card" aria-label="마스터 시리얼 케어라벨 예시">
+            <div class="b-label-head"><span class="b-display">042 Tailoring</span><span>Master Serial Label</span></div>
+            <p class="b-serial">No. 017 / 100</p>
+            <dl>
+              <dt>Style</dt><dd>042-GNDR-JKT01</dd>
+              <dt>Stitch</dt><dd>Safety Orange · Hand basting</dd>
+              <dt>Made in</dt><dd>Jungchon-dong, Daejeon</dd>
+              <dt>Care</dt><dd>Dry clean only · Do not remove label</dd>
+            </dl>
+            <p class="b-label-for">For:<span>당신의 이름이 여기에 새겨집니다</span></p>
+          </div>
+          <p class="b-note">* 라벨 예시. 실제 시리얼 번호와 문구는 현장에서 고객과 함께 결정합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 컬러 팔레트 가이드 [작성서 03: 디자인 방향] ===== -->
+  <section class="b-section">
+    <div class="b-wrap">
+      <div class="b-sec-head">
+        <div>
+          <p class="b-eyebrow">Color Palette Guide</p>
+          <h2 class="b-display">네 가지 색, 하나의 포인트</h2>
+        </div>
+        <p class="b-mono">Raw · Charcoal · Chalk · Orange</p>
+      </div>
+      <div class="b-palette">
+        <div class="b-swatch"><div class="b-chip" style="background:#050505"></div><p class="b-swatch-name">Raw Black</p><p class="b-mono">#050505</p><p class="b-sub">정통 테일러링의 깊은 무게감과 베이스</p></div>
+        <div class="b-swatch"><div class="b-chip" style="background:#2B2B2E"></div><p class="b-swatch-name">Tailor Charcoal</p><p class="b-mono">#2B2B2E</p><p class="b-sub">인더스트리얼 울 트윌 텍스처</p></div>
+        <div class="b-swatch"><div class="b-chip" style="background:#F5F5F7"></div><p class="b-swatch-name">Chalk White</p><p class="b-mono">#F5F5F7</p><p class="b-sub">패브릭 라벨 &amp; 백그라운드</p></div>
+        <div class="b-swatch"><div class="b-chip" style="background:#FF5500"></div><p class="b-swatch-name">Safety Orange</p><p class="b-mono">#FF5500</p><p class="b-sub">시침실 스티치 시그니처 포인트</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 젠더리스: 같은 패턴, 남녀 모델 [작성서 02: 사람·공간 사진] ===== -->
+  <section class="b-section">
+    <div class="b-wrap">
+      <div class="b-pair">
+        <figure class="b-photo"><img src="images/brand/look03-chalk-beige-belted-women.jpg" alt="초크 베이지 벨티드 더블 셋업을 입은 여성 모델이 주황색 의자에 앉아 있다." /><figcaption class="b-tag"><b>Same pattern</b>Look 03 · Women's</figcaption></figure>
+        <figure class="b-photo"><img src="images/brand/look03-chalk-beige-belted-men.jpg" alt="같은 초크 베이지 벨티드 더블 셋업을 입은 남성 모델이 회색 벽 앞에 무릎을 굽히고 있다." /><figcaption class="b-tag"><b>Same pattern</b>Look 03 · Men's</figcaption></figure>
+      </div>
+      <div class="b-pair-copy">
+        <div>
+          <p class="b-eyebrow">Genderless</p>
+          <h2 class="b-display">하나의 패턴,<br />모두의 실루엣</h2>
+        </div>
+        <p>남성복과 여성복의 경직된 구분을 해체합니다. 어깨선이 자연스럽게 떨어지는 드롭숄더와 와이드 실루엣은 성별에 관계없이 같은 드레이프를 만듭니다. 오버핏 2개 사이즈로 그레이딩을 정형화해 생산 공정을 단축하고 재고 리스크를 차단합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 대표 4착장 룩북 =====
+       브랜드 소개 자료의 컬렉션 개요입니다. 실제 판매 제품은 제품 페이지(products.json)에서 관리됩니다. -->
+  <section class="b-section">
+    <div class="b-wrap">
+      <div class="b-sec-head">
+        <div>
+          <p class="b-eyebrow">SS · Look 01 – 04</p>
+          <h2 class="b-display">대표 4착장 컬렉션</h2>
+        </div>
+        <p class="b-mono">Same outfit · Every body</p>
+      </div>
+      <div class="b-lookbook">
+        <a class="b-look" href="products.html">
+          <figure class="b-photo"><img src="images/brand/look01-black-overfit-jacket-mirror.jpg" alt="블랙 오버핏 재킷과 와이드 슬랙스. 소매의 주황색 X 스티치." /><figcaption class="b-tag"><b>Look 01</b>042-GNDR-JKT01</figcaption></figure>
+          <h3>블랙 오버핏 재킷 &amp; 와이드 슬랙스</h3>
+          <p>소매 라인에 대형 Safety Orange X-스티치를 배치한 대표 데님 테일러드 셋업.</p>
+        </a>
+        <a class="b-look" href="products.html">
+          <figure class="b-photo"><img src="images/brand/look02-charcoal-setup-front.jpg" alt="차콜 테일러드 셋업과 화이트 셔츠를 입은 모델이 야간 창가 앞에 서 있다." /><figcaption class="b-tag"><b>Look 02</b>042-GNDR-ST02</figcaption></figure>
+          <h3>차콜 테일러드 셋업 &amp; 라인 스티치</h3>
+          <p>정통 양복의 고전적 품격에 슬랙스 옆선 시침실 라인을 더한 셋업.</p>
+        </a>
+        <a class="b-look" href="products.html">
+          <figure class="b-photo"><img src="images/brand/look03-chalk-beige-belted-women.jpg" alt="초크 베이지 벨티드 더블 셋업." /><figcaption class="b-tag"><b>Look 03</b>042-GNDR-DBL03</figcaption></figure>
+          <h3>초크 베이지 벨티드 더블 셋업</h3>
+          <p>허리 벨트 드레이프와 라펠·플랩 포켓 포인트 스티치가 돋보이는 젠더리스 룩.</p>
+        </a>
+        <a class="b-look" href="products.html">
+          <figure class="b-photo"><img src="images/brand/look04-washed-slate-shirt-toolbag.jpg" alt="계단에 앉은 모델. 워시드 슬레이트 셔츠와 블랙 레더 툴백." /><figcaption class="b-tag"><b>Look 04</b>042-GNDR-SHR04</figcaption></figure>
+          <h3>워시드 슬레이트 셔츠 &amp; 레더 툴백</h3>
+          <p>카라 X-스티치 리넨 셔츠와 중촌동 봉제 도구 가방에서 모티브를 얻은 레더 토트.</p>
+        </a>
+      </div>
+      <p class="b-cta"><a class="btn" href="products.html">제품 보기 →</a></p>
+    </div>
+  </section>
+
+  <!-- ===== 만드는 방식 (생산·QC) ===== -->
+  <section class="b-section b-section-last">
+    <div class="b-wrap">
+      <div class="b-sec-head">
+        <div>
+          <p class="b-eyebrow">Production &amp; QC</p>
+          <h2 class="b-display">중촌동에서 만들어지는 방식</h2>
+        </div>
+        <p class="b-mono">Tech-pack · SAMS · Hand stitch</p>
+      </div>
+      <div class="b-process">
+        <div><h3 class="b-display">표준 Tech-Pack</h3><p>40년 경력 장인과 협업해 도식화, 봉제사양서(SAMS), Safety Orange 시침실과 042 직조라벨 규격을 표준화합니다.</p></div>
+        <div><h3 class="b-display">공정 분업화</h3><p>메인 봉제는 중촌동 수트 라인에서, 시그니처 십자 스티치는 공방 연계 100% 수작업 핸드 스티치로 완성합니다.</p></div>
+        <div><h3 class="b-display">2-Size Genderless</h3><p>남녀 구분 없는 오버핏 2개 사이즈로 그레이딩을 정형화해 생산 공정을 단축하고 재고 리스크를 차단합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 푸터 (5페이지 공통) ===== -->
   <footer class="footer">
     <p class="logo"><img src="images/042-tailoring-logo.png" alt="042 TAILORING" /></p>
     <p class="biz">상호명: 042 Tailoring · 대표자: 정주원</p>

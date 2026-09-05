@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>제품 — 브랜드 이름</title>
-  <meta name="description" content="브랜드의 제품(컬렉션)을 소개합니다." />
+  <title>제품 — 042 TAILORING</title>
+  <meta name="description" content="042 TAILORING의 제품. Safety Orange 시침실 스티치와 100벌 한정 마스터 시리얼 라벨을 공유하는 젠더리스 테일러드 컬렉션." />
+  <meta property="og:title" content="제품 — 042 TAILORING" />
+  <meta property="og:description" content="젠더리스 테일러드 컬렉션. 재킷 · 셋업 · 셔츠 · 슬랙스 · 레더백." />
+  <meta property="og:image" content="images/brand/look02-charcoal-setup-front.jpg" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- ===== 상단 메뉴 (5페이지 공통) ===== -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="logo" aria-label="042 TAILORING 홈으로 이동">
@@ -26,21 +33,39 @@
     </div>
   </header>
 
-  <!-- [작성서 05: 취급 품목] -->
-  <section class="page-head">
-    <h1>제품</h1>
-    <p>취급 품목을 여기에 적으세요. (예: Dress / Jacket / Shirt / Skirt)</p>
+  <!-- ===== 페이지 머리 [작성서 05: 취급 품목] ===== -->
+  <section class="b-page-head">
+    <div class="b-wrap">
+      <p class="b-eyebrow">Collection</p>
+      <h1 class="b-display">제품</h1>
+      <p class="b-lead">재킷 · 셋업 · 셔츠 · 슬랙스 · 레더백. 모든 제품은 Safety Orange 시침실 스티치와 100벌 한정 마스터 시리얼 라벨을 공유합니다.</p>
+      <!-- 컬렉션 공통 사양: 작업지시서 머리말처럼 짧게 -->
+      <dl class="b-meta">
+        <div><dt>Stitch</dt><dd>Hand basting · #FF5500</dd></div>
+        <div><dt>Edition</dt><dd>#001 – #100</dd></div>
+        <div><dt>Sizing</dt><dd>2-Size Genderless</dd></div>
+        <div><dt>Made in</dt><dd>Jungchon-dong · Daejeon</dd></div>
+      </dl>
+    </div>
   </section>
 
   <!-- ===== 제품 목록 =====
        ★ 제품은 여기 HTML이 아니라 products.json 파일에서 관리합니다.
-       products.json에 제품을 추가하면 이 목록과 상세 페이지에 자동으로 나타납니다. -->
-  <section class="section">
-    <div class="grid" id="product-list">
-      <!-- products.json 내용이 자동으로 채워집니다 -->
+       브랜드 담당자가 /admin에서 제품을 저장하면 이 목록과 상세 페이지에 자동으로 나타납니다.
+       학생은 카드 모양(style.css의 .grid / .card)만 디자인합니다. -->
+  <section class="b-section">
+    <div class="b-wrap">
+      <div class="b-list-head">
+        <p class="b-eyebrow">All products</p>
+        <p class="b-mono" id="product-count" aria-live="polite"></p>
+      </div>
+      <div class="grid b-product-grid" id="product-list">
+        <!-- products.json 내용이 자동으로 채워집니다 -->
+      </div>
     </div>
   </section>
 
+  <!-- ===== 푸터 (5페이지 공통) ===== -->
   <footer class="footer">
     <p class="logo"><img src="images/042-tailoring-logo.png" alt="042 TAILORING" /></p>
     <p class="biz">상호명: 042 Tailoring · 대표자: 정주원</p>
@@ -50,20 +75,24 @@
   <script src="script.js"></script>
   <script src="catalog.js?v=20260826-rich-editor-1"></script>
   <script>
-    // 공개된 products.json 제품을 카드로 그립니다. 학생은 CSS로 자유롭게 디자인할 수 있습니다.
+    // 공개된 products.json 제품을 카드로 그립니다. 데이터는 그대로, 모양은 style.css에서 디자인합니다.
     ProductCatalog.loadVisibleProducts()
       .then((products) => {
         const box = document.getElementById("product-list");
+        const count = document.getElementById("product-count");
+        if (count) count.textContent = products.length + " items";
         box.innerHTML = products
-          .map((p) => {
+          .map((p, index) => {
             const image = ProductCatalog.safeImageUrl(p.images && p.images[0]);
             const img = image
-              ? '<img src="' + ProductCatalog.escapeHtml(image) + '" alt="' + ProductCatalog.escapeHtml(p.name) + '" onerror="this.remove()" />'
+              ? '<img src="' + ProductCatalog.escapeHtml(image) + '" alt="' + ProductCatalog.escapeHtml(p.name) + '" loading="lazy" onerror="this.remove()" />'
               : "";
             const price = p.price ? '<p class="price">' + ProductCatalog.escapeHtml(p.price) + "</p>" : "";
+            // 카드 왼쪽 위 번호 라벨: 마스터 시리얼 라벨처럼 두 자리로 표시합니다.
+            const no = String(index + 1).padStart(2, "0");
             return (
               '<a class="card" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
-              '<div class="card-img">' + img + "</div>" +
+              '<div class="card-img"><span class="card-no">' + no + "</span>" + img + "</div>" +
               '<p class="k">' + ProductCatalog.escapeHtml(p.label || p.category || "") + "</p>" +
               "<h3>" + ProductCatalog.escapeHtml(p.name) + "</h3>" +
               "<p>" + ProductCatalog.escapeHtml(p.summary || "") + "</p>" + price +
@@ -71,10 +100,13 @@
             );
           })
           .join("");
+        if (!products.length) {
+          box.innerHTML = '<p class="b-empty">준비 중인 제품이 있습니다. 곧 공개됩니다.</p>';
+        }
       })
       .catch(() => {
         document.getElementById("product-list").innerHTML =
-          "<p>제품을 불러오지 못했습니다. 로컬에서는 npx serve 로 미리보기 하세요.</p>";
+          '<p class="b-empty">제품을 불러오지 못했습니다. 로컬에서는 npx serve 로 미리보기 하세요.</p>';
       });
   </script>
 </body>
