@@ -17,23 +17,41 @@ const runwayPrev = document.querySelector(".runway-button-prev");
 const runwayNext = document.querySelector(".runway-button-next");
 
 if (runway && runwayTrack && runwayPrev && runwayNext) {
+  const originalCards = Array.from(runwayTrack.children);
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    runwayTrack.appendChild(clone);
+  });
+
   let runwayIsMoving = false;
 
   const updateRunwayButtons = () => {
-    const end = runway.scrollWidth - runway.clientWidth;
-    runwayPrev.disabled = runwayIsMoving || runway.scrollLeft <= 1;
-    runwayNext.disabled = runwayIsMoving || runway.scrollLeft >= end - 1;
+    runwayPrev.disabled = runwayIsMoving;
+    runwayNext.disabled = runwayIsMoving;
   };
 
   const moveRunway = (direction) => {
     const card = runwayTrack.querySelector(".runway-card");
     if (!card || runwayIsMoving) return;
 
-    const start = runway.scrollLeft;
-    const end = Math.max(0, Math.min(
-      start + direction * card.getBoundingClientRect().width,
-      runway.scrollWidth - runway.clientWidth
-    ));
+    const cardWidth = card.getBoundingClientRect().width;
+    const repeatedStart = runwayTrack.children[originalCards.length].offsetLeft;
+    let start = runway.scrollLeft;
+
+    // 복제된 영역에 들어간 상태라면 같은 모습의 원본 위치로 되돌립니다.
+    if (start >= repeatedStart) {
+      start -= repeatedStart;
+      runway.scrollLeft = start;
+    }
+
+    // 첫 사진에서 이전 버튼을 누르면 복제된 첫 사진 위치에서 8번째로 이동합니다.
+    if (direction < 0 && start < cardWidth / 2) {
+      start += repeatedStart;
+      runway.scrollLeft = start;
+    }
+
+    const end = start + direction * cardWidth;
     const duration = 550;
     const startedAt = performance.now();
 
@@ -52,6 +70,9 @@ if (runway && runwayTrack && runwayPrev && runwayNext) {
       if (progress < 1) {
         window.requestAnimationFrame(slide);
       } else {
+        // 8번째 다음의 복제 사진에서 같은 모습의 원본 사진으로 조용히 연결합니다.
+        if (end >= repeatedStart) runway.scrollLeft = end - repeatedStart;
+        if (end < 0) runway.scrollLeft = end + repeatedStart;
         runwayIsMoving = false;
         updateRunwayButtons();
       }
@@ -62,7 +83,5 @@ if (runway && runwayTrack && runwayPrev && runwayNext) {
 
   runwayPrev.addEventListener("click", () => moveRunway(-1));
   runwayNext.addEventListener("click", () => moveRunway(1));
-  runway.addEventListener("scroll", updateRunwayButtons, { passive: true });
-  window.addEventListener("resize", updateRunwayButtons);
   updateRunwayButtons();
 }
