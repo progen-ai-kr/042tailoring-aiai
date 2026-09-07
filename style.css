@@ -503,3 +503,159 @@ a { color: inherit; }
   .b-page-head { padding-top: 64px; }
   .b-page-head .b-meta { margin-top: 40px; }
 }
+
+/* ==========================================================
+   042ARCHIVE — 포트폴리오 전용 룩북 레이아웃
+   기존 관리자 본문(#portfolioContent) 연결은 유지하고,
+   페이지 바깥 프레임만 에디토리얼 아카이브처럼 구성합니다.
+   ========================================================== */
+.archive-page {
+  overflow-x: hidden;
+  background: var(--raw);
+  color: var(--chalk);
+}
+
+.archive-page .nav {
+  background: color-mix(in srgb, var(--raw) 94%, transparent);
+  border-bottom-color: var(--charcoal);
+}
+
+.archive-page .nav-inner { max-width: 1540px; }
+.archive-page .nav-toggle { color: var(--chalk); }
+.archive-page .nav-menu { background: var(--raw); border-bottom-color: var(--charcoal); }
+.archive-page .nav-menu a { color: color-mix(in srgb, var(--chalk) 60%, transparent); border-top-color: var(--charcoal); }
+.archive-page .nav-menu a.active { color: var(--orange); }
+.archive-page .footer { background: var(--raw); color: color-mix(in srgb, var(--chalk) 56%, transparent); border-top-color: var(--charcoal); }
+
+.archive-main { background: var(--raw); }
+.archive-frame { width: min(100%, 1540px); margin: 0 auto; padding-inline: 18px; }
+.archive-display { font-family: var(--font-brand); font-weight: 700; letter-spacing: -.045em; line-height: .84; text-transform: uppercase; }
+.archive-micro { font-family: var(--font-mono); font-size: 10px; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.archive-index { color: var(--orange); }
+
+/* 히어로 */
+.archive-hero { padding: 18px 0 52px; }
+.archive-rail { display: grid; grid-template-columns: 1fr auto; gap: 7px 18px; padding: 9px 0; color: color-mix(in srgb, var(--chalk) 58%, transparent); border-top: 1px solid var(--charcoal); border-bottom: 1px solid var(--charcoal); }
+.archive-rail span:last-child { grid-column: 1 / -1; }
+.archive-hero-copy { margin-top: 28px; color: var(--orange); }
+.archive-hero-title { position: relative; z-index: 1; margin: 18px 0 28px; font-size: clamp(68px, 24.5vw, 186px); }
+.archive-hero-title span { display: block; }
+.archive-hero-title span:last-child::after { content: "."; color: var(--orange); }
+.archive-hero-visual { position: relative; margin: 0; border: 1px solid var(--charcoal); background: var(--charcoal); }
+.archive-hero-visual img { width: 100%; height: clamp(510px, 135vw, 780px); object-fit: cover; object-position: 50% 18%; filter: saturate(.7) contrast(1.06); }
+.archive-hero-visual figcaption { display: grid; gap: 4px; padding: 10px 12px; color: color-mix(in srgb, var(--chalk) 68%, transparent); border-top: 1px solid var(--charcoal); }
+.archive-cropmark { position: absolute; z-index: 1; width: 34px; height: 34px; pointer-events: none; }
+.archive-cropmark::before,
+.archive-cropmark::after { content: ""; position: absolute; background: var(--orange); }
+.archive-cropmark::before { top: 16px; left: 0; width: 34px; height: 1px; }
+.archive-cropmark::after { top: 0; left: 16px; width: 1px; height: 34px; }
+.archive-cropmark-top { top: 14px; left: 14px; }
+.archive-cropmark-bottom { right: 14px; bottom: 49px; }
+
+/* 공통 섹션 머리 */
+.archive-section-head { display: grid; gap: 22px; padding-bottom: 28px; border-bottom: 1px solid color-mix(in srgb, var(--raw) 26%, transparent); }
+.archive-section-head h2 { max-width: 8em; font-size: clamp(54px, 14vw, 112px); }
+.archive-head-note { align-self: end; }
+.archive-section-head-dark { border-bottom-color: var(--charcoal); }
+.archive-section-head-dark .archive-head-note { color: color-mix(in srgb, var(--chalk) 55%, transparent); }
+
+/* 브랜드 철학 */
+.archive-philosophy { padding: 70px 0; background: var(--chalk); color: var(--raw); }
+.archive-philosophy-grid { border-left: 1px solid color-mix(in srgb, var(--raw) 26%, transparent); }
+.archive-philosophy-grid article { position: relative; min-height: 220px; padding: 20px 16px 24px; border-right: 1px solid color-mix(in srgb, var(--raw) 26%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--raw) 26%, transparent); }
+.archive-philosophy-grid article::after { content: "×"; position: absolute; right: 12px; bottom: 6px; color: var(--orange); font-family: var(--font-mono); font-size: 22px; font-weight: 400; }
+.archive-key-num { display: block; margin-bottom: 58px; color: color-mix(in srgb, var(--raw) 52%, transparent); }
+.archive-philosophy-grid h3 { margin-bottom: 20px; font-size: clamp(38px, 11vw, 62px); }
+.archive-philosophy-grid p { max-width: 25em; }
+
+/* 셀렉티드 컬렉션 */
+.archive-selected { padding: 74px 0 100px; }
+.archive-collection-grid { display: grid; gap: 68px; margin-top: 44px; }
+.archive-look-card { min-width: 0; }
+.archive-look-image { position: relative; overflow: hidden; margin: 0; background: var(--charcoal); border: 1px solid var(--charcoal); }
+.archive-look-image::before,
+.archive-look-image::after { content: ""; position: absolute; z-index: 1; pointer-events: none; }
+.archive-look-image::before { inset: 14px; border-top: 1px solid color-mix(in srgb, var(--chalk) 40%, transparent); border-left: 1px solid color-mix(in srgb, var(--chalk) 40%, transparent); }
+.archive-look-image::after { top: 14px; right: 14px; width: 28px; border-top: 2px solid var(--orange); }
+.archive-look-image img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; filter: saturate(.78) contrast(1.04); }
+.archive-look-mark { position: absolute; right: 0; bottom: 0; min-width: 56px; padding: 8px 10px; background: var(--orange); color: var(--raw); text-align: center; }
+.archive-look-info { padding-top: 14px; border-top: 1px solid var(--charcoal); }
+.archive-look-code { margin-bottom: 9px; color: var(--orange); overflow-wrap: anywhere; }
+.archive-look-info h3 { font-size: clamp(32px, 9vw, 58px); }
+.archive-look-info > p:last-child { margin-top: 10px; color: color-mix(in srgb, var(--chalk) 62%, transparent); font-size: 13px; }
+
+/* 관리자에서 작성한 본문이 있을 때 컬렉션 아래에 이어서 표시합니다. */
+.archive-page .archive-managed { max-width: 920px; margin: 100px 0 0; padding-top: 34px; border-top: 2px dashed var(--orange); color: var(--chalk); }
+.archive-page .archive-managed::before { content: "EDITORIAL NOTE / ADMIN ARCHIVE"; display: block; margin-bottom: 40px; color: var(--orange); font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; }
+.archive-page .archive-managed h2,
+.archive-page .archive-managed h3,
+.archive-page .archive-managed h4,
+.archive-page .archive-managed strong { color: var(--chalk); }
+.archive-page .archive-managed p,
+.archive-page .archive-managed li { color: color-mix(in srgb, var(--chalk) 68%, transparent); }
+.archive-page .archive-managed blockquote { border-left-color: var(--orange); }
+.archive-page .archive-managed img,
+.archive-page .archive-managed iframe,
+.archive-page .archive-managed video { border-radius: 0; }
+.archive-page .archive-managed img { filter: grayscale(1) contrast(1.05); }
+.archive-page .archive-managed.is-empty,
+.archive-page .archive-managed:has(> .portfolio-status) { display: none; }
+
+/* 시그니처 디테일 */
+.archive-signature { padding: 18px 0 90px; border-top: 1px solid var(--orange); border-bottom: 1px solid var(--orange); }
+.archive-signature-grid { display: grid; gap: 32px; }
+.archive-signature .archive-index { padding-top: 14px; }
+.archive-stitch-field { display: flex; overflow: hidden; justify-content: space-between; gap: 20px; color: var(--orange); border-top: 1px dashed var(--orange); border-bottom: 1px dashed var(--orange); }
+.archive-stitch-field span { flex: 0 0 auto; font-family: var(--font-mono); font-size: clamp(68px, 22vw, 170px); font-weight: 200; line-height: .86; }
+.archive-signature-copy h2 { font-size: clamp(58px, 16vw, 150px); overflow-wrap: anywhere; }
+.archive-signature-copy h2 span { display: block; color: var(--orange); }
+.archive-signature-copy > p { max-width: 32em; margin-top: 26px; font-size: clamp(20px, 5.5vw, 38px); line-height: 1.25; }
+.archive-signature-spec { padding-left: 14px; color: color-mix(in srgb, var(--chalk) 55%, transparent); border-left: 1px solid var(--orange); }
+
+/* 클로징 */
+.archive-closing { display: grid; min-height: 78svh; padding: 72px 0 38px; background: var(--charcoal); }
+.archive-closing .archive-frame { display: flex; flex-direction: column; }
+.archive-closing h2 { margin: auto 0; font-size: clamp(55px, 15.5vw, 154px); }
+.archive-closing-line { position: relative; height: 1px; margin-bottom: 22px; background: var(--orange); }
+.archive-closing-line span { position: absolute; top: 50%; right: 12%; padding: 0 9px; background: var(--charcoal); color: var(--orange); font-family: var(--font-mono); font-size: 31px; line-height: 1; transform: translateY(-52%); }
+.archive-closing-sub { color: var(--orange); }
+
+@media (min-width: 720px) {
+  .archive-page .nav-menu { background: none; }
+  .archive-frame { padding-inline: 28px; }
+  .archive-hero { padding-top: 24px; padding-bottom: 90px; }
+  .archive-rail { grid-template-columns: 1fr auto 1fr; }
+  .archive-rail span:last-child { grid-column: auto; text-align: right; }
+  .archive-hero-copy { margin-top: 48px; }
+  .archive-hero-title { margin: 25px 0 40px; font-size: clamp(118px, 16.6vw, 254px); }
+  .archive-hero-title span { display: inline; }
+  .archive-hero-title span + span { margin-left: .08em; }
+  .archive-hero-visual img { height: min(72vw, 880px); object-position: 50% 24%; }
+  .archive-hero-visual figcaption { grid-template-columns: 1fr auto; }
+  .archive-section-head { grid-template-columns: minmax(0, 1fr) auto; gap: 26px 60px; align-items: end; padding-bottom: 40px; }
+  .archive-section-head .archive-index { grid-column: 1 / -1; }
+  .archive-head-note { text-align: right; }
+  .archive-philosophy { padding: 112px 0; }
+  .archive-philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .archive-philosophy-grid article { min-height: 380px; padding: 28px 24px 34px; }
+  .archive-key-num { margin-bottom: 150px; }
+  .archive-philosophy-grid h3 { font-size: clamp(34px, 4.1vw, 64px); }
+  .archive-selected { padding: 118px 0 160px; }
+  .archive-collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 120px 28px; margin-top: 74px; }
+  .archive-look-card:nth-child(even) { transform: translateY(120px); }
+  .archive-look-info h3 { font-size: clamp(34px, 4.3vw, 66px); }
+  .archive-page .archive-managed { margin-top: 220px; }
+  .archive-signature { padding-bottom: 130px; }
+  .archive-signature-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 54px 40px; }
+  .archive-signature .archive-index { grid-column: 1 / -1; }
+  .archive-stitch-field { grid-column: 1 / -1; }
+  .archive-signature-copy h2 { font-size: clamp(90px, 11.2vw, 172px); }
+  .archive-signature-spec { align-self: end; min-width: 200px; }
+  .archive-closing { min-height: 92svh; padding-top: 100px; padding-bottom: 56px; }
+  .archive-closing h2 { font-size: clamp(80px, 10.8vw, 166px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .archive-look-image img { transition: transform .7s cubic-bezier(.2, .7, .2, 1), filter .7s ease; }
+  .archive-look-card:hover .archive-look-image img { transform: scale(1.015); filter: saturate(.9) contrast(1.08); }
+}

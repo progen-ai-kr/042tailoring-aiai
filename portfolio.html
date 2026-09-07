@@ -1,48 +1,186 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>포트폴리오 — 브랜드 이름</title>
-  <meta name="description" content="브랜드의 작업 사례를 소개합니다." />
-  <link rel="icon" href="images/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="rich-content.css?v=20260826-rich-editor-1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>042ARCHIVE | 042 TAILORING</title>
+  <meta name="description" content="중촌동의 맞춤양복 기술을 현대적인 젠더리스 패션으로 재구성한 042 TAILORING의 작업물과 컬렉션 아카이브입니다.">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="rich-content.css?v=20260826-rich-editor-1">
 </head>
-<body>
+<body class="archive-page">
 
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="logo" aria-label="042 TAILORING 홈으로 이동">
-        <img src="images/042-tailoring-logo.png" alt="042 TAILORING" />
+        <img src="images/042-tailoring-logo.png" alt="042 TAILORING">
       </a>
-      <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
-      <nav class="nav-menu">
+      <button class="nav-toggle" type="button" aria-label="메뉴 열기">☰</button>
+      <nav class="nav-menu" aria-label="주요 메뉴">
         <a href="index.html">홈</a>
         <a href="about.html">브랜드 소개</a>
         <a href="products.html">제품</a>
-        <a href="portfolio.html" class="active">포트폴리오</a>
+        <a href="portfolio.html" class="active" aria-current="page">042ARCHIVE</a>
         <a href="contact.html">문의</a>
       </nav>
     </div>
   </header>
 
-  <section class="page-head">
-    <h1>포트폴리오</h1>
-    <p>브랜드의 작업·프로젝트 사례를 소개합니다.</p>
-  </section>
+  <main class="archive-main">
+    <!-- 01. 히어로: 시즌 룩북의 표지처럼 큰 타이포그래피와 대표 이미지를 배치합니다. -->
+    <section class="archive-hero" aria-labelledby="archiveTitle">
+      <div class="archive-frame">
+        <div class="archive-rail archive-micro" role="group" aria-label="아카이브 정보">
+          <span>042 / JCD</span>
+          <span>ARCHIVE INDEX — 001</span>
+          <span>DAEJEON, KR</span>
+        </div>
 
-  <section class="section">
-    <!-- 브랜드 담당자가 관리자에서 작성한 한 개의 포트폴리오 문서가 여기에 표시됩니다.
-         학생은 이 컨테이너와 portfolio.js를 유지하고 CSS로 UI만 디자인하세요. -->
-    <article id="portfolioContent" class="portfolio-content" aria-live="polite">
-      <p class="portfolio-status">포트폴리오를 불러오는 중입니다.</p>
-    </article>
-  </section>
+        <p class="archive-hero-copy archive-micro">HERITAGE, RECONSTRUCTED.</p>
+        <h1 id="archiveTitle" class="archive-hero-title archive-display">
+          <span>042</span>
+          <span>ARCHIVE</span>
+        </h1>
+
+        <figure class="archive-hero-visual">
+          <img src="images/brand/look01-black-overfit-jacket-mirror.jpg" alt="오렌지 X-스티치가 드러난 블랙 오버핏 재킷과 와이드 슬랙스 컬렉션 룩" fetchpriority="high">
+          <span class="archive-cropmark archive-cropmark-top" aria-hidden="true"></span>
+          <span class="archive-cropmark archive-cropmark-bottom" aria-hidden="true"></span>
+          <figcaption class="archive-micro">
+            <span>LOOK 01 / 042-GNDR-JKT01</span>
+            <span>JUNGCHON-DONG — 2026</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02. 브랜드 철학: 핵심 키워드를 작업 사양표처럼 간결하게 보여줍니다. -->
+    <section class="archive-philosophy" aria-labelledby="philosophyTitle">
+      <div class="archive-frame">
+        <header class="archive-section-head">
+          <p class="archive-index archive-micro">[ 02 / PHILOSOPHY ]</p>
+          <h2 id="philosophyTitle" class="archive-display">BRAND<br>PHILOSOPHY</h2>
+          <p class="archive-head-note archive-micro">BUILT FROM THE PROCESS<br>NOT HIDDEN BY IT</p>
+        </header>
+
+        <div class="archive-philosophy-grid">
+          <article>
+            <span class="archive-key-num archive-micro">P-01</span>
+            <h3 class="archive-display">LOCAL<br>HERITAGE</h3>
+            <p class="archive-micro">JUNGCHON-DONG / DAEJEON 042</p>
+          </article>
+          <article>
+            <span class="archive-key-num archive-micro">P-02</span>
+            <h3 class="archive-display">CRAFT<br>DECONSTRUCTION</h3>
+            <p class="archive-micro">BASTING / CANVAS / RAW SEAM</p>
+          </article>
+          <article>
+            <span class="archive-key-num archive-micro">P-03</span>
+            <h3 class="archive-display">GENDERLESS<br>FIT</h3>
+            <p class="archive-micro">FORM FOLLOWS THE BODY</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. 셀렉티드 컬렉션: 현재는 상세 이동 없이 네 개의 대표 룩만 소개합니다. -->
+    <section class="archive-selected" aria-labelledby="collectionTitle">
+      <div class="archive-frame">
+        <header class="archive-section-head archive-section-head-dark">
+          <p class="archive-index archive-micro">[ 03 / SELECTED ]</p>
+          <h2 id="collectionTitle" class="archive-display">SELECTED<br>COLLECTION</h2>
+          <p class="archive-head-note archive-micro">4 LOOKS<br>1 CONTINUOUS STUDY</p>
+        </header>
+
+        <div class="archive-collection-grid">
+          <article class="archive-look-card">
+            <figure class="archive-look-image">
+              <img src="images/brand/look01-black-overfit-jacket-sofa.jpg" alt="블랙 오버핏 재킷과 와이드 슬랙스 룩">
+              <span class="archive-look-mark archive-micro">01</span>
+            </figure>
+            <div class="archive-look-info">
+              <p class="archive-look-code archive-micro">COLLECTION 01 / 042-GNDR-JKT01</p>
+              <h3 class="archive-display">BLACK OVERSIZED</h3>
+              <p>블랙 오버핏 재킷 &amp; 와이드 슬랙스</p>
+            </div>
+          </article>
+
+          <article class="archive-look-card">
+            <figure class="archive-look-image">
+              <img src="images/brand/look02-charcoal-setup-side-stitch.jpg" alt="라인 스티치가 드러난 차콜 테일러드 셋업 룩">
+              <span class="archive-look-mark archive-micro">02</span>
+            </figure>
+            <div class="archive-look-info">
+              <p class="archive-look-code archive-micro">COLLECTION 02 / 042-GNDR-ST02</p>
+              <h3 class="archive-display">CHARCOAL TAILORED</h3>
+              <p>차콜 테일러드 셋업 &amp; 라인 스티치</p>
+            </div>
+          </article>
+
+          <article class="archive-look-card">
+            <figure class="archive-look-image">
+              <img src="images/brand/look03-chalk-beige-belted-men.jpg" alt="초크 베이지 벨티드 더블 셋업 룩">
+              <span class="archive-look-mark archive-micro">03</span>
+            </figure>
+            <div class="archive-look-info">
+              <p class="archive-look-code archive-micro">COLLECTION 03 / 042-GNDR-DBL03</p>
+              <h3 class="archive-display">CHALK BEIGE</h3>
+              <p>초크 베이지 벨티드 더블 셋업</p>
+            </div>
+          </article>
+
+          <article class="archive-look-card">
+            <figure class="archive-look-image">
+              <img src="images/brand/look04-washed-slate-shirt-toolbag.jpg" alt="레더 툴백을 든 워시드 슬레이트 셔츠 룩">
+              <span class="archive-look-mark archive-micro">04</span>
+            </figure>
+            <div class="archive-look-info">
+              <p class="archive-look-code archive-micro">COLLECTION 04 / 042-GNDR-SHR04</p>
+              <h3 class="archive-display">WASHED SLATE</h3>
+              <p>워시드 슬레이트 셔츠 &amp; 레더 툴백</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- 관리자 편집기의 포트폴리오 본문 연결은 그대로 유지합니다. 내용이 있을 때만 아래에 표시됩니다. -->
+        <article id="portfolioContent" class="portfolio-content archive-managed" aria-live="polite">
+          <p class="portfolio-status">포트폴리오를 불러오는 중입니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05. 시그니처 디테일: 숨겨졌던 시침선을 브랜드의 표식으로 확대합니다. -->
+    <section class="archive-signature" aria-labelledby="signatureTitle">
+      <div class="archive-frame">
+        <div class="archive-signature-grid">
+          <p class="archive-index archive-micro">[ 05 / SIGNATURE DETAIL ]</p>
+          <div class="archive-stitch-field" aria-hidden="true">
+            <span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+          </div>
+          <div class="archive-signature-copy">
+            <h2 id="signatureTitle" class="archive-display"><span>#FF5500</span> SAFETY ORANGE</h2>
+            <p>What was once hidden becomes our signature.</p>
+          </div>
+          <p class="archive-signature-spec archive-micro">THREAD SPEC. 042-X<br>HAND-BASTED / EXPOSED<br>TENSION 04.2</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. 클로징: 지역성과 제작 장소를 한 문장으로 남깁니다. -->
+    <section class="archive-closing" aria-labelledby="closingTitle">
+      <div class="archive-frame">
+        <p class="archive-index archive-micro">[ 06 / ORIGIN ]</p>
+        <h2 id="closingTitle" class="archive-display">CRAFTED IN<br>JUNGCHON-DONG.</h2>
+        <div class="archive-closing-line" aria-hidden="true"><span>×</span></div>
+        <p class="archive-closing-sub archive-micro">FROM DAEJEON 042</p>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p class="logo"><img src="images/042-tailoring-logo.png" alt="042 TAILORING" /></p>
-    <p class="biz">상호명: 042 Tailoring · 대표자: 정주원</p>
+    <p class="logo"><img src="images/042-tailoring-logo.png" alt="042 TAILORING"></p>
+    <p class="biz">상호명: 042 Tailoring · 대표자: 정주현</p>
     <p>© 042 Tailoring. All rights reserved.</p>
   </footer>
 
