@@ -85,3 +85,22 @@ if (runway && runwayTrack && runwayPrev && runwayNext) {
   runwayNext.addEventListener("click", () => moveRunway(1));
   updateRunwayButtons();
 }
+
+// 페이지가 길 때 빠르게 처음으로 돌아가는 공통 버튼입니다.
+const backToTop = document.createElement("button");
+backToTop.type = "button";
+backToTop.className = "back-to-top";
+backToTop.setAttribute("aria-label", "맨 위로 가기");
+backToTop.innerHTML = '<span aria-hidden="true">↑</span><span>TOP</span>';
+document.body.appendChild(backToTop);
+
+const updateBackToTop = () => {
+  backToTop.classList.toggle("is-visible", window.scrollY > 520);
+};
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+window.addEventListener("scroll", updateBackToTop, { passive: true });
+updateBackToTop();
