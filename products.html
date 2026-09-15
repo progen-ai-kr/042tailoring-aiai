@@ -90,8 +90,9 @@
             const price = p.price ? '<p class="price">' + ProductCatalog.escapeHtml(p.price) + "</p>" : "";
             // 카드 왼쪽 위 번호 라벨: 마스터 시리얼 라벨처럼 두 자리로 표시합니다.
             const no = String(index + 1).padStart(2, "0");
+            const anchorId = "product-" + String(p.id).replace(/[^A-Za-z0-9_-]/g, "-");
             return (
-              '<a class="card" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+              '<a class="card" id="' + ProductCatalog.escapeHtml(anchorId) + '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
               '<div class="card-img"><span class="card-no">' + no + "</span>" + img + "</div>" +
               '<p class="k">' + ProductCatalog.escapeHtml(p.label || p.category || "") + "</p>" +
               "<h3>" + ProductCatalog.escapeHtml(p.name) + "</h3>" +
@@ -102,6 +103,11 @@
           .join("");
         if (!products.length) {
           box.innerHTML = '<p class="b-empty">준비 중인 제품이 있습니다. 곧 공개됩니다.</p>';
+        }
+        // products.json 로딩 후 생성된 카드 위치로 이동합니다.
+        if (location.hash) {
+          const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       })
       .catch(() => {
