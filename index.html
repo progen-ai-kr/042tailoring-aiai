@@ -68,47 +68,18 @@
     <button class="runway-button runway-button-prev" type="button" aria-label="이전 의상 보기">←</button>
     <div class="runway-scroll" tabindex="0" aria-label="좌우로 넘겨보는 의상 이미지">
       <div class="runway-track">
-        <figure class="runway-card"><img src="images/home-runway-01.jpg" alt="의상 스타일 1" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-02.jpg" alt="의상 스타일 2" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-03.jpg" alt="의상 스타일 3" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-04.jpg" alt="의상 스타일 4" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-05.jpg" alt="의상 스타일 5" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-06.jpg" alt="의상 스타일 6" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-07.jpg" alt="의상 스타일 7" loading="lazy"></figure>
-        <figure class="runway-card"><img src="images/home-runway-08.jpg" alt="의상 스타일 8" loading="lazy"></figure>
+        <a class="runway-card" href="product.html?id=205aa907-89ec-420b-8bb0-45d3437c0fcf" aria-label="블랙 오버핏 데님 재킷 &amp; 와이드 슬랙스 셋업 보기"><img src="images/home-runway-01.jpg" alt="의상 스타일 1" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-03" aria-label="워시드 슬레이트 셔츠 &amp; 와이드 슬랙스 셋업 보기"><img src="images/home-runway-02.jpg" alt="의상 스타일 2" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-03" aria-label="워시드 슬레이트 셔츠 &amp; 와이드 슬랙스 셋업 보기"><img src="images/home-runway-03.jpg" alt="의상 스타일 3" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-03" aria-label="워시드 슬레이트 셔츠 &amp; 와이드 슬랙스 셋업 보기"><img src="images/home-runway-04.jpg" alt="의상 스타일 4" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-03" aria-label="워시드 슬레이트 셔츠 &amp; 와이드 슬랙스 셋업 보기"><img src="images/home-runway-05.jpg" alt="의상 스타일 5" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-02" aria-label="초크 베이지 벨티드 더블 셋업 보기"><img src="images/home-runway-06.jpg" alt="의상 스타일 6" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-02" aria-label="초크 베이지 벨티드 더블 셋업 보기"><img src="images/home-runway-07.jpg" alt="의상 스타일 7" loading="lazy"></a>
+        <a class="runway-card" href="product.html?id=look-01" aria-label="차콜 테일러드 셋업 보기"><img src="images/home-runway-08.jpg" alt="의상 스타일 8" loading="lazy"></a>
       </div>
     </div>
     <button class="runway-button runway-button-next" type="button" aria-label="다음 의상 보기">→</button>
-  </section>
-
-  <!-- ===== 강점 3가지 [작성서 04 홈: 강점3가지] ===== -->
-  <section class="section">
-    <p class="eyebrow">WHY US</p>
-    <h2>우리 브랜드의 강점</h2>
-    <div class="features">
-      <div class="feature">
-        <p class="num">01</p>
-        <h3>강점 제목</h3>
-        <p>강점 설명을 적으세요.</p>
-      </div>
-      <div class="feature">
-        <p class="num">02</p>
-        <h3>강점 제목</h3>
-        <p>강점 설명을 적으세요.</p>
-      </div>
-      <div class="feature">
-        <p class="num">03</p>
-        <h3>강점 제목</h3>
-        <p>강점 설명을 적으세요.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 대표 제품 미리보기 — products.json에서 자동으로 채워짐 ===== -->
-  <section class="section">
-    <p class="eyebrow">COLLECTION</p>
-    <h2>대표 룩</h2>
-    <div class="grid" id="home-looks"></div>
+    <a class="runway-collection-link" href="products.html">VIEW COLLECTION <span aria-hidden="true">↗</span></a>
   </section>
 
   <!-- ===== 푸터 (5페이지 공통) [작성서 01: 푸터 표기 정보] ===== -->
@@ -119,29 +90,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="catalog.js?v=20260826-rich-editor-1"></script>
-  <script>
-    // 공개 제품 중 '홈 대표 제품'을 최대 4개 보여줍니다.
-    ProductCatalog.loadVisibleProducts()
-      .then((products) => {
-        const featured = products.filter((product) => product.featured);
-        const homeProducts = (featured.length ? featured : products).slice(0, 4);
-        document.getElementById("home-looks").innerHTML = homeProducts
-          .map((p) => {
-            const image = ProductCatalog.safeImageUrl(p.images && p.images[0]);
-            const img = image
-              ? '<img src="' + ProductCatalog.escapeHtml(image) + '" alt="' + ProductCatalog.escapeHtml(p.name) + '" onerror="this.remove()" />'
-              : "";
-            return (
-              '<a class="card" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
-              '<div class="card-img">' + img + "</div>" +
-              '<p class="k">' + ProductCatalog.escapeHtml(p.label || p.category || "") + "</p>" +
-              "<h3>" + ProductCatalog.escapeHtml(p.name) + "</h3></a>"
-            );
-          })
-          .join("");
-      })
-      .catch(() => {});
-  </script>
 </body>
 </html>

@@ -15,16 +15,19 @@ const runway = document.querySelector(".runway-scroll");
 const runwayTrack = document.querySelector(".runway-track");
 const runwayPrev = document.querySelector(".runway-button-prev");
 const runwayNext = document.querySelector(".runway-button-next");
+const runwaySection = document.querySelector(".runway");
 
-if (runway && runwayTrack && runwayPrev && runwayNext) {
+if (runway && runwayTrack && runwayPrev && runwayNext && runwaySection) {
   const originalCards = Array.from(runwayTrack.children);
   originalCards.forEach((card) => {
     const clone = card.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("tabindex", "-1");
     runwayTrack.appendChild(clone);
   });
 
   let runwayIsMoving = false;
+  let runwayAutoTimer;
 
   const updateRunwayButtons = () => {
     runwayPrev.disabled = runwayIsMoving;
@@ -81,9 +84,23 @@ if (runway && runwayTrack && runwayPrev && runwayNext) {
     window.requestAnimationFrame(slide);
   };
 
-  runwayPrev.addEventListener("click", () => moveRunway(-1));
-  runwayNext.addEventListener("click", () => moveRunway(1));
+  const stopRunwayAuto = () => window.clearInterval(runwayAutoTimer);
+  const startRunwayAuto = () => {
+    stopRunwayAuto();
+    runwayAutoTimer = window.setInterval(() => moveRunway(1), 4000);
+  };
+
+  runwayPrev.addEventListener("click", () => {
+    moveRunway(-1);
+    startRunwayAuto();
+  });
+  runwayNext.addEventListener("click", () => {
+    moveRunway(1);
+    startRunwayAuto();
+  });
+  // 동작 최소화 설정이나 마우스·키보드 포커스 상태와 관계없이 자동 재생을 유지합니다.
   updateRunwayButtons();
+  startRunwayAuto();
 }
 
 // 페이지가 길 때 빠르게 처음으로 돌아가는 공통 버튼입니다.

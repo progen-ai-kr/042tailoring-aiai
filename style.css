@@ -80,11 +80,14 @@ a { color: inherit; }
 .runway-track { display: flex; width: max-content; gap: 0; }
 .runway-card { flex: 0 0 clamp(132px, 32vw, 390px); aspect-ratio: 3 / 4; margin: 0; overflow: hidden; background: var(--surface); }
 .runway-card img { width: 100%; height: 100%; object-fit: cover; }
+.runway-card:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
 .runway-button { position: absolute; top: 50%; z-index: 2; display: grid; width: 46px; height: 46px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: color-mix(in srgb, var(--bg) 88%, transparent); color: var(--ink); font-size: 24px; line-height: 1; place-items: center; transform: translateY(-50%); cursor: pointer; backdrop-filter: blur(8px); }
 .runway-button-prev { left: 10px; }
 .runway-button-next { right: 10px; }
 .runway-button:disabled { opacity: .35; cursor: default; }
 .runway-button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.runway-collection-link { position: absolute; right: clamp(14px, 3vw, 28px); bottom: clamp(14px, 3vw, 28px); z-index: 3; display: inline-flex; min-height: 44px; align-items: center; gap: 8px; padding: 10px 16px; background: var(--accent); color: var(--bg); font-family: var(--font-mono); font-size: clamp(10px, 2.8vw, 13px); font-weight: 700; letter-spacing: .08em; text-decoration: none; }
+.runway-collection-link:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 .letter-reel {
   position: relative;
   flex: 0 0 .57em;
