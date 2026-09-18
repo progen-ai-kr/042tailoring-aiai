@@ -95,10 +95,12 @@
 
         <div class="archive-collection-grid">
           <article class="archive-look-card">
-            <figure class="archive-look-image">
-              <img src="images/brand/look01-black-overfit-jacket-sofa.jpg" alt="블랙 오버핏 재킷과 와이드 슬랙스 룩">
-              <span class="archive-look-mark archive-micro">01</span>
-            </figure>
+            <a class="archive-look-link" data-product-id="look-01" href="product.html?id=look-01" aria-label="제품 상세페이지로 이동">
+              <figure class="archive-look-image">
+                <img src="images/brand/look01-black-overfit-jacket-sofa.jpg" alt="블랙 오버핏 재킷과 와이드 슬랙스 룩">
+                <span class="archive-look-mark archive-micro">01</span>
+              </figure>
+            </a>
             <div class="archive-look-info">
               <p class="archive-look-code archive-micro">COLLECTION 01 / 042-GNDR-JKT01</p>
               <h3 class="archive-display">BLACK OVERSIZED</h3>
@@ -107,10 +109,12 @@
           </article>
 
           <article class="archive-look-card">
-            <figure class="archive-look-image">
-              <img src="images/brand/look02-charcoal-setup-side-stitch.jpg" alt="라인 스티치가 드러난 차콜 테일러드 셋업 룩">
-              <span class="archive-look-mark archive-micro">02</span>
-            </figure>
+            <a class="archive-look-link" data-product-id="look-02" href="product.html?id=look-02" aria-label="제품 상세페이지로 이동">
+              <figure class="archive-look-image">
+                <img src="images/brand/look02-charcoal-setup-side-stitch.jpg" alt="라인 스티치가 드러난 차콜 테일러드 셋업 룩">
+                <span class="archive-look-mark archive-micro">02</span>
+              </figure>
+            </a>
             <div class="archive-look-info">
               <p class="archive-look-code archive-micro">COLLECTION 02 / 042-GNDR-ST02</p>
               <h3 class="archive-display">CHARCOAL TAILORED</h3>
@@ -119,10 +123,12 @@
           </article>
 
           <article class="archive-look-card">
-            <figure class="archive-look-image">
-              <img src="images/brand/look03-chalk-beige-belted-men.jpg" alt="초크 베이지 벨티드 더블 셋업 룩">
-              <span class="archive-look-mark archive-micro">03</span>
-            </figure>
+            <a class="archive-look-link" data-product-id="look-03" href="product.html?id=look-03" aria-label="제품 상세페이지로 이동">
+              <figure class="archive-look-image">
+                <img src="images/brand/look03-chalk-beige-belted-men.jpg" alt="초크 베이지 벨티드 더블 셋업 룩">
+                <span class="archive-look-mark archive-micro">03</span>
+              </figure>
+            </a>
             <div class="archive-look-info">
               <p class="archive-look-code archive-micro">COLLECTION 03 / 042-GNDR-DBL03</p>
               <h3 class="archive-display">CHALK BEIGE</h3>
@@ -187,5 +193,71 @@
   <script src="catalog.js?v=20260826-rich-editor-1"></script>
   <script src="portfolio.js"></script>
   <script src="script.js"></script>
+  <script>
+    // 제품명은 products.json에서 읽어 링크의 접근 가능한 이름에 반영합니다.
+    ProductCatalog.loadVisibleProducts().then((products) => {
+      const byId = new Map(products.map((product) => [product.id, product]));
+      document.querySelectorAll(".archive-look-link[data-product-id]").forEach((link) => {
+        const product = byId.get(link.dataset.productId);
+        if (!product) {
+          link.removeAttribute("href");
+          link.setAttribute("aria-disabled", "true");
+          return;
+        }
+        link.setAttribute("aria-label", product.name + " 상세페이지로 이동");
+      });
+    }).catch(() => {
+      // 제품 데이터가 없어도 이미 유효한 상대경로 링크는 유지합니다.
+    });
+  </script>
+  <script>
+    // 관리자에 남아 있는 기본 예시 이미지만 공개 화면용 에디토리얼 갤러리로 대체합니다.
+    (() => {
+      const root = document.getElementById("portfolioContent");
+      if (!root) return;
+
+      const curatedMarkup = `
+        <header class="archive-curated-intro">
+          <p class="archive-index archive-micro">[ EDITORIAL / FIELD NOTES ]</p>
+          <h2 class="archive-display">FIELD<br>STUDY</h2>
+          <p class="archive-curated-note archive-micro">FIVE LOOKS / ONE CONTINUOUS STUDY<br>042 TAILORING — 2026</p>
+        </header>
+        <div class="archive-curated-grid">
+          <figure class="archive-curated-card archive-curated-card-featured">
+            <img src="images/portfolio/archive-editorial-01-black-sofa.jpg" alt="블랙 오버핏 재킷과 와이드 팬츠를 입은 남성 모델이 구조적인 공간에 서 있는 룩">
+            <figcaption class="archive-micro"><span>LOOK 01</span><span>BLACK / STRUCTURE</span></figcaption>
+          </figure>
+          <figure class="archive-curated-card">
+            <img src="images/portfolio/archive-editorial-02-charcoal-rose.jpg" alt="차콜 셋업과 주황색 시침실 디테일을 보여주는 남성 모델의 룩">
+            <figcaption class="archive-micro"><span>LOOK 02</span><span>CHARCOAL / TAILORED</span></figcaption>
+          </figure>
+          <figure class="archive-curated-card">
+            <img src="images/portfolio/archive-editorial-03-cream-chair.jpg" alt="크림색 테일러드 셋업을 입은 모델이 거울 앞에 앉아 있는 룩">
+            <figcaption class="archive-micro"><span>LOOK 03</span><span>CREAM / MIRROR STUDY</span></figcaption>
+          </figure>
+          <figure class="archive-curated-card archive-curated-card-wide">
+            <img src="images/portfolio/archive-editorial-04-slate-night.jpg" alt="슬레이트 셔츠와 검정 팬츠, 블랙 토트백을 매치한 남성 모델의 룩">
+            <figcaption class="archive-micro"><span>LOOK 04</span><span>SLATE / CARRY FORM</span></figcaption>
+          </figure>
+          <figure class="archive-curated-card">
+            <img src="images/portfolio/archive-editorial-05-slate-doorway.jpg" alt="슬레이트 셔츠와 검정 팬츠, 블랙 백을 매치한 남성 모델이 건물 앞에 서 있는 룩">
+            <figcaption class="archive-micro"><span>LOOK 05</span><span>SLATE / STREET FORM</span></figcaption>
+          </figure>
+        </div>`;
+
+      function replaceDefaultPortfolio() {
+        if (root.dataset.curated === "true") return;
+        const defaultImage = root.querySelector('img[src*="1787726468424-b0ed9a40"]');
+        if (!defaultImage) return;
+        root.dataset.curated = "true";
+        root.classList.add("archive-curated-content");
+        root.innerHTML = curatedMarkup;
+      }
+
+      const observer = new MutationObserver(replaceDefaultPortfolio);
+      observer.observe(root, { childList: true, subtree: true });
+      replaceDefaultPortfolio();
+    })();
+  </script>
 </body>
 </html>

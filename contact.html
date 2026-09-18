@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>문의 — 브랜드 이름</title>
-  <meta name="description" content="브랜드에 문의하는 방법을 안내합니다." />
+  <title>문의 — 042 TAILORING</title>
+  <meta name="description" content="042 TAILORING 제품과 컬렉션에 대해 문의해 주세요." />
   <link rel="icon" href="images/favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="contact-page">
 
   <header class="nav">
     <div class="nav-inner">
@@ -26,30 +26,65 @@
     </div>
   </header>
 
-  <section class="page-head">
-    <h1>문의</h1>
-    <p>편한 방법으로 연락 주세요.</p>
+  <section class="contact-head" aria-labelledby="contactTitle">
+    <div class="contact-wrap">
+      <p class="b-eyebrow">Contact</p>
+      <h1 id="contactTitle" class="b-display">문의하기</h1>
+    </div>
   </section>
 
-  <!-- [작성서 07: 연락 수단·운영 시간] 노출 원치 않는 항목은 블록째 지우세요 -->
-  <section class="section">
-    <div class="contact-list">
-      <div class="contact-item">
-        <p class="label">Instagram</p>
-        <p class="value"><a href="https://instagram.com/계정" target="_blank">@계정이름</a></p>
-      </div>
-      <div class="contact-item">
-        <p class="label">Email</p>
-        <p class="value"><a href="mailto:hello@brand.com">hello@brand.com</a></p>
-      </div>
-      <div class="contact-item">
-        <p class="label">KakaoTalk</p>
-        <p class="value"><a href="#" target="_blank">카카오채널 바로가기</a></p>
-      </div>
-      <div class="contact-item">
-        <p class="label">Hours</p>
-        <p class="value">평일 10:00 – 18:00</p>
-      </div>
+  <section class="contact-section">
+    <div class="contact-wrap">
+      <p class="contact-form-notice" role="status">현재 문의 전송 기능을 준비 중입니다. 문의 내용을 작성해도 아직 전송되지 않습니다.</p>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="contact-form-row">
+          <label for="contactName">이름 <span aria-hidden="true">*</span></label>
+          <div class="contact-field">
+            <input id="contactName" name="name" type="text" autocomplete="name" placeholder="이름을 입력해 주세요." required>
+            <p class="contact-error" data-error-for="contactName" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="contact-form-row">
+          <label for="contactPhone">연락처 <span aria-hidden="true">*</span></label>
+          <div class="contact-field">
+            <input id="contactPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-1234-5678" required>
+            <p class="contact-error" data-error-for="contactPhone" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="contact-form-row">
+          <label for="contactEmail">이메일 <span aria-hidden="true">*</span></label>
+          <div class="contact-field">
+            <input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="email@example.com" required>
+            <p class="contact-error" data-error-for="contactEmail" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="contact-form-row">
+          <label for="contactProduct">문의 제품 <span aria-hidden="true">*</span></label>
+          <div class="contact-field">
+            <select id="contactProduct" name="productId" required>
+              <option value="">문의할 제품을 선택해 주세요</option>
+            </select>
+            <p class="contact-product-status" id="contactProductStatus" role="status" aria-live="polite"></p>
+            <p class="contact-error" data-error-for="contactProduct" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="contact-form-row contact-form-row-message">
+          <label for="contactMessage">문의 내용 <span aria-hidden="true">*</span></label>
+          <div class="contact-field">
+            <textarea id="contactMessage" name="message" rows="8" placeholder="문의 내용을 입력해 주세요." required></textarea>
+            <p class="contact-error" data-error-for="contactMessage" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="contact-form-actions">
+          <button class="contact-submit" type="submit">문의 남기기</button>
+          <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -60,5 +95,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="catalog.js?v=20260826-rich-editor-1"></script>
+  <script src="contact.js"></script>
 </body>
 </html>
